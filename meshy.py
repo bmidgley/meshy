@@ -4,7 +4,7 @@ import json
 import urllib2
 import csv
 import datetime
-import os.path
+import os
 
 import grovepi
 from grove_rgb_lcd import *
@@ -24,7 +24,7 @@ hosts = dict()
 def merge_hosts(file):
   if os.path.isfile(file):
     for host in list(csv.reader(open(file, 'rb'), delimiter='\t')):
-      if len(host) > 1 and host[1] != '':
+      if len(host) > 1:
         hosts[host[0]] = host[1]
 
 while True:
@@ -48,11 +48,12 @@ while True:
 
     for link in sorted_links:
       remoteIP = link['remoteIP']
-      quality = int(link['linkQuality'] * 10)
-      name = hosts.get(remoteIP, '')
-      text += ("%s " % (hosts.get(remoteIP, remoteIP)))
+      quality = link['linkQuality']
+      name = hosts.get(remoteIP, remoteIP)
+      text += "%s " % (name)
       with open(logfile, 'a') as log:
-        log.write("%s\t%s\t#\t%s\n" % (remoteIP, name, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+        log.write("%s\t%s\t#\t%s\t%f\n" % (remoteIP, name, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), quality))
+      os.system("sync")
 
     setText(text)
   except:
