@@ -10,5 +10,5 @@ Run meshy.py on boot and it will scan for and log contact with mesh networks. It
 and cache network names (callsigns) for use later. I will add the ability to store gps coordinates and 
 do some analysis on the logs later on.
 
-![alt tag](https://raw.github.com/bmidgley/meshy/master/images/meshy.jpg)
+![alt tag](https://raw.github.com/bmidgley/meshy/master/images/meshy.png)
 
