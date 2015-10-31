@@ -7,8 +7,8 @@ can "hear" how good the signal is. I plan to be able to switch that to a differe
 alerts from the mesh.
 
 Run meshy.py on boot and it will scan for and log contact with mesh networks. It will also try to resolve
-and cache network names (callsigns) for use later. I will add the ability to store gps coordinates and 
-do some analysis on the logs later on.
+and cache network names (callsigns) for use later. Add a GPS like the GPS-360 and set up hsmm-pi to
+broadcast your gps location and the logs will include location data.
 
 ![alt tag](https://raw.github.com/bmidgley/meshy/master/images/meshy.png)
 
